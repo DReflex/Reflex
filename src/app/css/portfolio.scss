@@ -1,0 +1,250 @@
+
+@mixin position {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+$headingColor: #e7ca4c;
+$color:rgb(21, 47, 159);
+@mixin text-heading {
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  color: lighten($headingColor, 30);
+  h1{
+    margin-top: 20%;
+  }
+}
+@mixin face($translate, $rotate) {
+  background-color:darken($color, 15);
+  transform:  $translate $rotate;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.portfolio{
+  position: relative;
+  margin:40px auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.flipBtnWrapper {
+  width: 49.95%;
+  min-height: 250px;
+  margin-top:1px;
+  position: relative;
+  input{
+    @include position;
+    opacity: 0.0;
+    z-index: 1;
+    margin:0;
+      &:checked ~ .front{
+        transform:rotateX(-180deg);
+      }
+      &:checked ~ .left {
+        transform: rotateY(-180deg);
+      }
+  }
+
+}
+
+.flipBtn,
+.flipBtn_face {
+  @include position;
+}
+
+.flipBtn_front {
+  @include face(translateZ( 15px), rotateZ(0deg) );
+  backface-visibility: hidden;
+}
+
+.flipBtn_back {
+  @include face(translateZ( -15px ), rotateZ(180deg) )
+
+
+}
+.flipBtn_left {
+  @include face(translateZ( -15px), rotateZ(0deg) );
+
+}
+.flipBtn_right {
+  @include face(translateZ( 15px), rotateZ(0deg) );
+
+
+}
+
+.flipBtn_mid {
+  height: 30px;
+  background-color: #0f15a7;
+  transform: rotateX(-90deg);
+  top: -15px;
+}
+
+.flipBtn {
+  transition: transform 1.5s;
+  transform-style: preserve-3d;
+}
+// faceing starts here
+.wikipedia{
+  width:100%;
+  height:100%;
+  position: relative;
+  background-image: url(https://cdn.glitch.com/81770a35-1790-4efa-8f7a-c06945d590c2%2Fwikipedia.png?1515935507781);
+  background-size: contain;
+  background-position: right;
+  background-repeat: no-repeat;
+  .wiki-heading{
+    @include position;
+    @include text-heading;
+    h1{
+      margin-top:10%;
+    }
+  }
+
+
+  img{
+    width:20%;
+    max-width: 100px;
+  }
+}
+
+.front{
+  position: absolute;
+  z-index: 1;
+}
+.backWiki{
+  position: absolute;
+  transform: rotateY(180deg);
+  text-align: center;
+  width:100%;
+  height:100%;
+  font-family: 'Roboto', sans-serif;
+  color: lighten($headingColor, 30);
+  a{
+    text-decoration: none;
+    color:$headingColor;
+    }
+}
+.nightlife{
+  width:100%;
+  height:100%;
+  position: relative;
+  background-image: url(https://cdn.glitch.com/a354874c-97f1-4ded-b2e3-660e263e138e%2Fbreak-dance-2327123_640.png?1509900203831);
+  background-size: contain;
+  background-position: right;
+  background-repeat: no-repeat;
+  .night-heading{
+    @include position;
+    @include text-heading;
+  }
+}
+.simonGame{
+  width:100%;
+  height:100%;
+  position: relative;
+  background-image: url(https://cdn.glitch.com/81770a35-1790-4efa-8f7a-c06945d590c2%2Fthumbnails%2Fsimpon.png?1515846178762);
+  background-size: contain;
+  background-position: right;
+  background-repeat: no-repeat;
+  .night-heading{
+    @include position;
+    @include text-heading;
+  }
+}
+.pinterest{
+  @include position;
+  position: relative;
+  background-image: url(https://s.pinimg.com/webapp/style/images/bg_multi_case_grid_no_text_white_55_percent-2000ab22.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  .night-heading{
+    @include position;
+    @include text-heading;
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+}
+.pomodoro{
+  @include position;
+  position: relative;
+  background-image: url(https://cdn.glitch.com/81770a35-1790-4efa-8f7a-c06945d590c2%2Fpomodoro2.png?1515936861845);
+  background-size: contain;
+  background-position: right;
+  background-repeat: no-repeat;
+  .night-heading{
+    @include position;
+    @include text-heading;
+  }
+}
+.bookClub{
+  @include position;
+  position: relative;
+  background-image: url('https://cdn.glitch.com/81770a35-1790-4efa-8f7a-c06945d590c2%2Ftree-triangular-shape-with-roots%20(1).svg?1513079789794');
+  background-size: contain;
+  background-position: right;
+  background-repeat: no-repeat;
+  .night-heading{
+    @include position;
+    @include text-heading;
+  }
+}
+.calculator{
+  @include position;
+  position: relative;
+  background-image: url('https://cdn.glitch.com/81770a35-1790-4efa-8f7a-c06945d590c2%2Fthumbnails%2Fcalculator.png?1515862362412');
+  background-size: contain;
+  background-position: right;
+  background-repeat: no-repeat;
+  .night-heading{
+    @include position;
+    @include text-heading;
+  }
+}
+.voting{
+  @include position;
+  position: relative;
+  background-image: url('http://pluspng.com/img-png/png-pie-chart-4-part-christmas-pie-chart-256.png');
+  background-size: contain;
+  background-position: right;
+  background-repeat: no-repeat;
+  .night-heading{
+    @include position;
+    @include text-heading;
+  }
+}
+.tic-tac{
+  @include position;
+  position: relative;
+  background-image: url(https://cdn.glitch.com/81770a35-1790-4efa-8f7a-c06945d590c2%2Ftic-tac.png?1515937383594);
+  background-size: cover;
+  background-position: right;
+  background-repeat: no-repeat;
+  .night-heading{
+    @include position;
+    @include text-heading;
+
+  }
+}
+.Chart{
+  @include position;
+  position: relative;
+  background-image: url('https://cdn4.iconfinder.com/data/icons/ikooni-outline-seo-web/128/seo-51-512.png');
+  background-size: contain;
+  background-position: left;
+  background-repeat: no-repeat;
+  .night-heading{
+    @include position;
+    @include text-heading;
+
+  }
+}
+@media screen and (max-width:760px) {
+  .portfolio{
+    flex-direction: column;
+  }
+  .flipBtnWrapper{
+    width:100%;
+  }
+}

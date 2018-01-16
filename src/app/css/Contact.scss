@@ -1,0 +1,20 @@
+.contact{
+  position: relative;
+  display: flex;
+  flex-direction: row;
+}
+.profile-img{
+  position:relative;
+  height:400px;
+  margin:auto;
+  margin-left:20px;
+  margin-top: 50px;
+}
+@media screen and (max-width: 760px) {
+  .contact{
+    flex-direction: column;
+  }
+  .profile-img{
+    margin:auto;
+  }
+}
