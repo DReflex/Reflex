@@ -1,4 +1,4 @@
-$borderColor: #c9c2c2;
+$borderColor: rgb(213, 212, 212);
 .scroll{
   position: absolute;
   width:100%;
@@ -26,6 +26,7 @@ $borderColor: #c9c2c2;
     height: 10px;
     background: $borderColor;
     margin-top:10px;
+    border-radius: 50%;
     animation: dot 3s 2s ease infinite, opacity 1.5s 3s both ease;
   }
 }

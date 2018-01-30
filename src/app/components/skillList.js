@@ -21,7 +21,6 @@ class SkillList extends React.Component{
     var rect = element.getBoundingClientRect().top;
     var top = element.scrollTop;
     // console.log("height", (rect + top) );
-    var left = document.getElementById("left")
     if(rect + top <= windowScroll){
       element.style.opacity= 1;
       element.style.transform= "translate(0%)";

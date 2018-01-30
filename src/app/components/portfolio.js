@@ -2,12 +2,42 @@ import React from 'react';
 import '../css/portfolio.scss';
 
 class Portfolio extends React.Component{
+  constructor(){
+    super();
+    this.checkTop = this.checkTop.bind(this)
+    this.portScroll = this.portScroll.bind(this)
+  }
   checked = (who) =>{
      document.getElementById(who).checked =! document.getElementById(who).checked;
   }
+  componentDidMount(){
+    document.addEventListener('scroll', this.portScroll)
+  }
+  portScroll(){
+    var e = document.getElementById('portfolio').children
+      for (var i = 0; i < e.length; i++) {
+        var windowScroll = window.scrollY;
+        var height = (window.innerWidth >= 760)?(e[i].offsetHeight * i)/3.5
+        :e[i].offsetHeight * i
+        this.checkTop(e[i], windowScroll, height);
+      }
+  }
+  checkTop =(element, windowScroll, height) =>{
+    let skillHeight = document.getElementById('Skill').offsetHeight
+    let portfolio = skillHeight + window.innerHeight - (element.offsetHeight * 1.5);
+
+    if(windowScroll >= (portfolio + height) ){
+      element.style.opacity= 1;
+      element.style.transform= "translate(0%)";
+    }
+    else{
+      element.style.opacity= 0;
+      element.style.transform= "translate(200%)";
+    }
+  }
   render(){
     return(
-      <div className="portfolio">
+      <div id="portfolio" className="portfolio">
 
         <div className="flipBtnWrapper">
           <input id="wiki" type="checkbox"/>

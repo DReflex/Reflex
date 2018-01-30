@@ -1,68 +1,62 @@
-$shadowColor:#f7ca01;
-.text{
-  left:0;
-  top:0;
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  width: 100%;
-  height:100%;
-  text-align: center;
-  align-items: center;
-  z-index: 1;
-  background:inherit;
+@import url(https://fonts.googleapis.com/css?family=Righteous);
+@import url('https://fonts.googleapis.com/css?family=Lobster|Oswald|Sedgwick+Ave+Display');
 
-  span{
+@mixin bee {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  position: relative;
+}
+  .dashBox{
+    @include bee;
+    height:100%;
     text-align: center;
-    font-size: 70px;
-    transform: translate3d(calc(-50% - 12px),calc(-50% + 12px),0);
-    mix-blend-mode: screen;
-    font-family: 'Montserrat', sans-serif;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    text-shadow: 0px 0px $shadowColor,
-              0px 0px $shadowColor,
-              0px 0px $shadowColor,
-              0px 0px $shadowColor,
-              0px 0px $shadowColor,
-              0px 0px $shadowColor,
-              0px 0px $shadowColor,
-              0px 0px $shadowColor,
-              0px 0px $shadowColor,
-              0px 0px $shadowColor,
-              0px 0px $shadowColor;
-    animation: revolve 2s 1.5s ease forwards;
-    opacity: 0;
+    background-color: transparent;
+    z-index: 4;
+    h1 {
+      @include bee;
+      display: inline-block;
+      color: rgb(213, 212, 212);
+      font-family: 'Lobster', cursive;
+
+      font-size: 70px;
+      text-shadow: .05em .05em 0 hsla(230,40%,50%,1);
+      }
+      h1:after {
+        @include bee;
+        content: attr(data-shadow);
+        position: absolute;
+        top: .08em; left: .08em;
+        z-index: -1;
+        text-shadow: none;
+        background-image:
+          linear-gradient(
+            45deg,
+            transparent 45%,
+            rgb(89, 142, 168) 45%,
+            rgb(89, 142, 168) 55%,
+            transparent 0
+            );
+        background-size: .5em .5em;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+        animation: shad-anim 15s linear infinite;
+        }
   }
-  .text-container{
-    width:80%;
+  .dashBox:before{
+    @include bee;
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 0;
+    height: 100%;
   }
-}
-@keyframes revolve {
-  to{
-    opacity:1;
-     transform: translate3d(-50%,-50%,0);
-    text-shadow: -2px 1px $shadowColor,
-        -3px 2px $shadowColor,
-        -4px 3px $shadowColor,
-        -5px 4px $shadowColor,
-        -6px 5px $shadowColor,
-        -7px 6px $shadowColor,
-        -8px 7px $shadowColor,
-        -9px 8px $shadowColor,
-        -10px 9px $shadowColor,
-        -11px 10px $shadowColor,
-        -12px 11px $shadowColor;
+
+
+
+
+@keyframes shad-anim {
+  0% {background-position: 0 0}
+  0% {background-position: 100% -100%}
   }
-}
-@media screen and (max-width:640px) {
- .text{
-   justify-content: center;
-   .text-container{
-     width:95%;
-     padding-left: 10px;
-   }
-   span{font-size: 35px;}
- }
-}

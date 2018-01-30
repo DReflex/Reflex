@@ -28,6 +28,7 @@ $color:rgb(21, 47, 159);
   flex-wrap: wrap;
   justify-content: space-between;
   width: 100%;
+  overflow-x: hidden;
 }
 
 .flipBtnWrapper {
@@ -35,6 +36,10 @@ $color:rgb(21, 47, 159);
   min-height: 250px;
   margin-top:1px;
   position: relative;
+  opacity: 0;
+  transform:translate(200%);
+  transition: 1.33s ease;//js transitions
+
   input{
     @include position;
     opacity: 0.0;

@@ -18,6 +18,8 @@ $color:rgb(21, 47, 159);
     position: relative;
     background:$color;
     color:lighten(complement($color), 35);
+    opacity: 0;
+    transform:translate(100%);
     transition: 1.33s ease;//js transitions
 
   }

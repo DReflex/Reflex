@@ -3,12 +3,8 @@ import '../css/text.scss'
 class Text extends React.Component{
   render(){
     return(
-      <div className="text">
-        <div className="text-container">
-          <span>Front end</span><br />
-          <span>Web Developer</span>
-        </div>
-
+      <div className="dashBox">
+        <h1 data-shadow='Web Developer'>Web Developer!</h1>
       </div>
     )
   }

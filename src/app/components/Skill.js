@@ -7,10 +7,7 @@ class Skill extends React.Component{
     return(
       <div>
         <SkillList />
-          <div id="portfolio">
-            <Portfolio />
-          </div>
-
+        <Portfolio />
       </div>
     )
   }
